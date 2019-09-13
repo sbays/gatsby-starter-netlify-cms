@@ -15,6 +15,8 @@ export const IndexPageTemplate = ({
   heading,
   subheading,
   mainpitch,
+  foo,
+  gridImages,
   description,
   intro
 }) => (
@@ -25,7 +27,10 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column column-is-6">
               <div className="landing-page__grid">
-                <div className="grid-item grid-item-1"></div>
+                <div className="grid-item grid-item-1">
+                  <img src="{}" alt="" />
+                  {/* <h2>{gridImages.item1.title}</h2> */}
+                </div>
                 <div className="grid-item grid-item-2"></div>
                 <div className="grid-item grid-item-3"></div>
                 <div className="grid-item grid-item-4"></div>
@@ -42,6 +47,7 @@ export const IndexPageTemplate = ({
                 <div className="content">
                   <div className="tile">
                     <h1 className="title">{mainpitch.title}</h1>
+                    <h3>{foo}</h3>
                   </div>
                   <div className="tile">
                     <h3 className="subtitle">{mainpitch.description}</h3>
@@ -82,6 +88,7 @@ IndexPageTemplate.propTypes = {
   heading: PropTypes.string,
   subheading: PropTypes.string,
   mainpitch: PropTypes.object,
+  foo: PropTypes.string,
   description: PropTypes.string,
   intro: PropTypes.shape({
     blurbs: PropTypes.array
@@ -99,6 +106,7 @@ const IndexPage = ({ data }) => {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         mainpitch={frontmatter.mainpitch}
+        foo={frontmatter.foo}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
