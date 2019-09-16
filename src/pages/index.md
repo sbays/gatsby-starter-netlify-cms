@@ -13,7 +13,6 @@ mainpitch:
     Format Extend is a small architectural practice based in North-West London
     specialising in private residential development across the range from
     internal renovations, to extensions and new build houses.
-foo: BaAaAr
 gridImages:
   item1:
     image: /img/grid-1.jpg
