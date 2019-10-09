@@ -1,21 +1,20 @@
 ---
 templateKey: index-page
 title: Format Extend
-mainpitch:
-  landingPageText: >-
-    Format is a small architect’s practice based in North-West London with great
-    experience in private residential development but we take on larger projects
-    too. We work across London and the surrounding area across a range from
-    internal renovations, home extensions, commercial conversions and new build
-    houses.
+landingPageText: >-
+  Format is a small architect’s practice based in North-West London with great
+  experience in private residential development but we take on larger projects
+  too. 
 
 
-    Format was founded in 2012 by father and son team Robert and James O’Hara.
-    Between them they have over 45 years architectural experience.
+  We work across London and the surrounding area across a range from internal
+  renovations, home extensions, commercial conversions and new build houses.
+  Format was founded in 2012 by father and son team Robert and James O’Hara.
+  Between them they have over 45 years architectural experience. 
 
 
-    Please call us on 020 7625 5007 or email info@formatextend.com to arrange a
-    meeting and discuss your project.
+  Please call us on 020 7625 5007 or email info@formatextend.com to arrange a
+  meeting and discuss your project.
 gridImages:
   item1:
     image: /img/grid-1.jpg
