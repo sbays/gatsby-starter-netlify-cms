@@ -1,7 +1,45 @@
 import React from "react";
 import { Link } from "gatsby";
+import styled from "styled-components";
 import github from "../img/github-icon.svg";
 import logo from "../img/logo.svg";
+
+const NavbarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 1024px) {
+    flex-direction: row;
+  }
+
+  .navbar__logo {
+    width: 306px;
+    height: 82px;
+    padding: 0 12px 5px;
+    align-items: flex-end;
+    img {
+      width: 100%;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      object-fit: contain;
+    }
+  }
+`;
+
+const NavbarMenu = styled.div`
+  a {
+    &:first-child {
+      @media screen and (min-width: 1024px) {
+        padding-left: 6rem;
+      }
+    }
+    padding: 1rem 0;
+    @media screen and (min-width: 1024px) {
+      padding: 1rem 3rem 0;
+    }
+  }
+`;
 
 const Navbar = class extends React.Component {
   constructor(props) {
@@ -39,7 +77,7 @@ const Navbar = class extends React.Component {
         role="navigation"
         aria-label="main-navigation"
       >
-        <div className="container">
+        <NavbarWrapper>
           <div className="navbar-brand">
             <Link to="/" className="navbar-item navbar__logo" title="Logo">
               <img src={logo} alt="Format Extend" />
@@ -59,24 +97,12 @@ const Navbar = class extends React.Component {
             id="navMenu"
             className={`navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <div className="navbar-start has-text-centered">
-              <Link className="navbar-item" to="/about">
-                About
-              </Link>
-              <Link className="navbar-item" to="/projects">
-                Design
-              </Link>
-              <Link className="navbar-item" to="/projects">
-                Sustain
+            <NavbarMenu className="navbar-start has-text-centered">
+              <Link className="navbar-item" to="/">
+                Home
               </Link>
               <Link className="navbar-item" to="/projects">
                 Projects
-              </Link>
-              <Link className="navbar-item" to="/projects">
-                Inform
-              </Link>
-              <Link className="navbar-item" to="/projects">
-                faq
               </Link>
               <Link className="navbar-item" to="/blog">
                 Blog
@@ -84,12 +110,9 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/contact">
                 Contact
               </Link>
-              <Link className="navbar-item" to="/contact/examples">
-                Shop
-              </Link>
-            </div>
+            </NavbarMenu>
           </div>
-        </div>
+        </NavbarWrapper>
       </nav>
     );
   }
