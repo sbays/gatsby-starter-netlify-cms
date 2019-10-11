@@ -40,63 +40,38 @@ const ProjectItem = styled.div`
   }
 `;
 
-export const ProjectsPageTemplate = ({ title, projects }) => (
-  <ProjectsWrapper className="content">
-    {projects.length > 1 &&
-      projects.map((project, i) => {
-        const images = project.images.map((image, i) => {
-          let photo = { ...image.image.childImageSharp };
-          photo = {
-            ...photo,
-            // aspectRatio: 1
-            title: image.title
-          };
-          return photo;
-        });
-        return (
-          <ProjectItem className="project__item" key={i}>
-            {/* <h3>{project.projectTitle}</h3>
-            <p>{project.projectDescription}</p> */}
-            <div className="images">
-              <div className="blank-block"></div>
-              <Gallery
-                title=""
-                slug=""
-                images={images}
-                itemsPerRow={[3, 3, 5, 7]}
-              ></Gallery>
-              {/* {project.images &&
-                project.images.map((image, i) => (
-                  <img
-                    key={i}
-                    src={image.image.childImageSharp.fluid.src}
-                    alt={image.title}
-                    title={image.title}
-                  />
-                ))} */}
-            </div>
-          </ProjectItem>
-        );
-      })}
-  </ProjectsWrapper>
-);
-
-// ProjectsPageTemplate.propTypes = {
-//   title: PropTypes.string,
-//   description: PropTypes.string,
-//   projects: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       images: PropTypes.arrayOf(
-//         PropTypes.shape({
-//           image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-//           title: PropTypes.string
-//         })
-//       ),
-//       projectDescription: PropTypes.string,
-//       projectTitle: PropTypes.string
-//     })
-//   )
-// };
+export const ProjectsPageTemplate = ({ title, projects }) =>
+  console.log(projects) || (
+    <ProjectsWrapper className="content">
+      {projects.length > 1 &&
+        projects.map((project, i) => {
+          const images = project.images
+            .filter(image => !!image.image)
+            .map((image, i) => {
+              let photo = { ...image.image.childImageSharp };
+              photo = {
+                ...photo,
+                title: image.title
+              };
+              return photo;
+            });
+          console.log(images);
+          return (
+            <ProjectItem className="project__item" key={i}>
+              <div className="images">
+                <div className="blank-block"></div>
+                <Gallery
+                  title=""
+                  slug=""
+                  images={images}
+                  itemsPerRow={[3]}
+                ></Gallery>
+              </div>
+            </ProjectItem>
+          );
+        })}
+    </ProjectsWrapper>
+  );
 
 const ProjectsPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
@@ -141,9 +116,6 @@ export const projectsPageQuery = graphql`
                   src
                   aspectRatio
                 }
-                #   fluid(maxWidth: 2048, quality: 100) {
-                #     ...GatsbyImageSharpFluid
-                #   }
               }
             }
             title

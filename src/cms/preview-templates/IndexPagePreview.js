@@ -7,16 +7,19 @@ const IndexPagePreview = ({ entry, getAsset }) => {
 
   if (data) {
     return (
-      <IndexPageTemplate
-        image={data.image}
-        title={data.title}
-        heading={data.heading}
-        subheading={data.subheading}
-        description={data.description}
-        intro={data.intro || { blurbs: [] }}
-        mainpitch={data.mainpitch || {}}
-        gridImages={data.gridImages || {}}
-      />
+      <>
+        <h1>foo</h1>
+        <IndexPageTemplate
+          image={data.image}
+          title={data.title}
+          heading={data.heading}
+          subheading={data.subheading}
+          landingPageText={fdata.landingPageText}
+          gridImages={data.gridImages}
+          description={data.description}
+          intro={data.intro}
+        />
+      </>
     );
   } else {
     return <div>Loading...</div>;

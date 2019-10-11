@@ -44,6 +44,7 @@ const Gallery = ({ title, images, itemsPerRow: itemsPerRowByBreakpoints }) => {
     <GalleryContent className="gallery-content">
       {/* <h2 key={title}>{title}</h2> */}
       {images.map((image, i) => {
+        if (!image) return false;
         return (
           <a key={image.fluid.src} onClick={() => openModal(i)}>
             <Img
@@ -140,13 +141,22 @@ const Gallery = ({ title, images, itemsPerRow: itemsPerRowByBreakpoints }) => {
 Gallery.propTypes = {
   images: PropTypes.arrayOf(
     PropTypes.shape({
-      // map: string,
       id: PropTypes.string,
-      // src: string,
-      // srcSet: string,
-      fluid: PropTypes.object,
+      fluid: PropTypes.shape({
+        aspectRatio: PropTypes.number,
+        base64: PropTypes.string,
+        sizes: PropTypes.string,
+        src: PropTypes.string,
+        srcSet: PropTypes.string
+      }),
       title: PropTypes.string,
-      thumbnail: PropTypes.string
+      thumbnail: PropTypes.shape({
+        aspectRatio: PropTypes.number,
+        base64: PropTypes.string,
+        sizes: PropTypes.string,
+        src: PropTypes.string,
+        srcSet: PropTypes.string
+      })
     })
   ),
   itemsPerRow: PropTypes.oneOfType(
