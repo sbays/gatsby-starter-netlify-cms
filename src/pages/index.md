@@ -18,27 +18,27 @@ landingPageText: >-
   discuss your project.
 gridImages:
   item1:
-    image: /img/grid-1.jpg
+    image: /img/img_2695-warm-square.jpg
     link: /about
     title: About
   item2:
-    image: /img/elgin-google1-1024x680.jpg
+    image: /img/img_1829square.jpg
     link: /projects
     title: Projects
   item3:
-    image: /img/grid-2.jpg
+    image: /img/img_1982square.jpg
     link: /inform
     title: Inform
   item4:
-    image: /img/grid-4.png
+    image: /img/tumblr_inline_np9w9pbjpz1rwmaks_540.jpg
     link: /faq
     title: FAQ
   item5:
-    image: /img/grid-3.jpg
+    image: /img/rear-elevation-completion-official-shots.jpg
     link: /contact
     title: Contact
   item6:
-    image: /img/grid-1.jpg
+    image: /img/rear-square.jpg
     link: /
     title: Extra
 ---
