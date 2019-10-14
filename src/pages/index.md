@@ -20,7 +20,19 @@ gridItems:
   - image: /img/img_2695-warm-square.jpg
     link: about
     title: About
-  - image: /img/img_2695-warm-square.jpg
+  - image: /img/img_1829square.jpg
     link: contact
     title: Contact
+  - image: /img/img_1982square.jpg
+    link: blog
+    title: Blog
+  - image: /img/tumblr_inline_np9w9pbjpz1rwmaks_540.jpg
+    title: ' '
+  - image: /img/rear-elevation-completion-official-shots.jpg
+    title: ' '
+  - image: /img/rear-square.jpg
+    title: ' '
+  - image: /img/grid-3.jpg
+    title: ' '
 ---
+
