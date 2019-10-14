@@ -49,7 +49,7 @@ const GridItem = Styled.div`
   }
 `;
 
-class GridImages extends Component {
+class GridItems extends Component {
   gridColorIndex = 0;
   constructor(props) {
     super(props);
@@ -61,19 +61,19 @@ class GridImages extends Component {
   componentDidMount() {
     const blocks = new Array(10).fill(null);
     const blankSpaces = [3, 6, 7, 9];
-    const { gridImages } = this.props;
+    const { gridItems } = this.props;
 
     blankSpaces.forEach(blankSpace => {
       blocks[blankSpace] = { blank: true };
     });
 
-    Object.keys(gridImages).map((key, index) => {
-      const gridImage = gridImages[key];
+    Object.keys(gridItems).map((key, index) => {
+      const gridItem = gridItems[key];
 
       const emptyBlockIndex = blocks.findIndex(block => {
         return block === null;
       });
-      blocks[emptyBlockIndex] = gridImage;
+      blocks[emptyBlockIndex] = gridItem;
     });
 
     this.setState({ blocks });
@@ -90,7 +90,7 @@ class GridImages extends Component {
 
   showBlocks = () => {
     return this.state.blocks.map((block, index) => {
-      if (!block.title) {
+      if (!block || !block.title) {
         const blockStyle = { backgroundColor: this.fetchBackgroundColor() };
         return (
           <div
@@ -133,4 +133,4 @@ class GridImages extends Component {
   }
 }
 
-export default GridImages;
+export default GridItems;

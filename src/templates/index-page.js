@@ -5,7 +5,7 @@ import Styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
 import Layout from "../components/Layout";
-import GridImages from "../components/GridImages";
+import GridItems from "../components/GridItems";
 
 const primaryColor = "rgba(28, 178, 191)";
 const LandingPageText = Styled.div`
@@ -41,7 +41,7 @@ export const IndexPageTemplate = ({ landingPageText, gridItems }) => {
           <div className="columns">
             <div className="column column-is-6 column--grid">
               <div className="landing-page__grid">
-                {gridItems && <GridImages gridItemss={gridItems}></GridImages>}
+                {gridItems && <GridItems gridItems={gridItems}></GridItems>}
               </div>
             </div>
             <div className="column is-6 column--text">

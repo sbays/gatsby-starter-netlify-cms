@@ -16,30 +16,11 @@ landingPageText: >-
   Please call us on 020 7625 5007 or [email
   info@formatextend.com](mailto:info@formatextend.com) to arrange a meeting and
   discuss your project.
-gridImages:
-  item1:
-    image: /img/img_2695-warm-square.jpg
-    link: /about
+gridItems:
+  - image: /img/img_2695-warm-square.jpg
+    link: about
     title: About
-  item2:
-    image: /img/img_1829square.jpg
-    link: /projects
-    title: Projects
-  item3:
-    image: /img/img_1982square.jpg
-    link: /inform
-    title: Inform
-  item4:
-    image: /img/tumblr_inline_np9w9pbjpz1rwmaks_540.jpg
-    link: /faq
-    title: FAQ
-  item5:
-    image: /img/rear-elevation-completion-official-shots.jpg
-    link: /contact
+  - image: /img/img_2695-warm-square.jpg
+    link: contact
     title: Contact
-  item6:
-    image: /img/rear-square.jpg
-    link: /
-    title: Extra
 ---
-
