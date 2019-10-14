@@ -2,13 +2,18 @@ import React, { Component } from "react";
 import { Link } from "gatsby";
 import Img from "gatsby-image";
 import Styled from "styled-components";
-import { formatGreen, formatBlue, formatGray } from "../variables";
+import {
+  formatGreen,
+  formatBlue,
+  formatGray,
+  formatGreenTranslucent
+} from "../variables";
 
 const backgroundColors = [formatGray, formatGreen, formatBlue];
 
 const GridItem = Styled.div`
   width: 90%;
-  background: green;
+  background: ${formatGreenTranslucent};
   grid-row: span 1;
   grid-column: span 1;
   position: relative;
@@ -37,7 +42,7 @@ const GridItem = Styled.div`
       visibility: visible;
     }
   }
-  .grid-item__link {
+  .grid-item__link, .grid-item__linkless {
     position: absolute;
     top:0;
     bottom: 0;
@@ -50,9 +55,9 @@ const GridItem = Styled.div`
 `;
 
 class GridItems extends Component {
-  gridColorIndex = 0;
   constructor(props) {
     super(props);
+    this.gridColorIndex = 0;
     this.state = {
       gridItems: null,
       blocks: null
@@ -60,7 +65,7 @@ class GridItems extends Component {
   }
   componentDidMount() {
     const blocks = new Array(10).fill(null);
-    const blankSpaces = [3, 6, 7, 9];
+    const blankSpaces = [3, 6, 7];
     const { gridItems } = this.props;
 
     blankSpaces.forEach(blankSpace => {
@@ -108,19 +113,33 @@ class GridItems extends Component {
                 <Img
                   fluid={block.image.childImageSharp.fluid}
                   title={block.title}
+                  sizes={{
+                    aspectRatio: 1,
+                    src: block.image.childImageSharp.fluid.src,
+                    srcSet: block.image.childImageSharp.fluid.srcSet,
+                    sizes: "100% 100%"
+                  }}
                 />
               ) : (
                 "noimage"
               )}
-              {block.title && (
+              {block.title && block.title.length && (
                 <h5 className="grid-item__title">{block.title}</h5>
               )}
             </Link>
           ) : block.image && block.image.childImageSharp ? (
-            <Img
-              fluid={block.image.childImageSharp.fluid}
-              title={block.title}
-            />
+            <div className="grid-item__linkless">
+              <Img
+                fluid={block.image.childImageSharp.fluid}
+                title={block.title}
+                sizes={{
+                  aspectRatio: 1,
+                  src: block.image.childImageSharp.fluid.src,
+                  srcSet: block.image.childImageSharp.fluid.srcSet,
+                  sizes: "100% 100%"
+                }}
+              />
+            </div>
           ) : (
             "noimage"
           )}
