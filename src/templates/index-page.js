@@ -111,6 +111,13 @@ export const pageQuery = graphql`
             childImageSharp {
               fluid(maxWidth: 2048, quality: 100) {
                 ...GatsbyImageSharpFluid
+                src
+                aspectRatio
+              }
+              thumbnail: fluid(maxWidth: 300, quality: 20) {
+                ...GatsbyImageSharpFluid
+                src
+                aspectRatio
               }
             }
           }

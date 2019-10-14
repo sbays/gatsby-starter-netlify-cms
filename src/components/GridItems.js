@@ -105,19 +105,20 @@ class GridItems extends Component {
           ></div>
         );
       }
+      console.log({ block });
       return (
         <GridItem key={index} className={`grid-item grid-item-${index + 1}`}>
           {block.link ? (
             <Link className="grid-item__link" to={`/${block.link}`}>
               {block.image && block.image.childImageSharp ? (
                 <Img
-                  fluid={block.image.childImageSharp.fluid}
+                  fluid={block.image.childImageSharp.thumbnail}
                   title={block.title}
                   sizes={{
                     aspectRatio: 1,
-                    src: block.image.childImageSharp.fluid.src,
-                    srcSet: block.image.childImageSharp.fluid.srcSet,
-                    sizes: "100% 100%"
+                    src: block.image.childImageSharp.thumbnail.src,
+                    srcSet: block.image.childImageSharp.thumbnail.srcSet,
+                    sizes: "200px 200px"
                   }}
                 />
               ) : (
@@ -130,12 +131,12 @@ class GridItems extends Component {
           ) : block.image && block.image.childImageSharp ? (
             <div className="grid-item__linkless">
               <Img
-                fluid={block.image.childImageSharp.fluid}
+                fluid={block.image.childImageSharp.thumbnail}
                 title={block.title}
                 sizes={{
                   aspectRatio: 1,
-                  src: block.image.childImageSharp.fluid.src,
-                  srcSet: block.image.childImageSharp.fluid.srcSet,
+                  src: block.image.childImageSharp.thumbnail.src,
+                  srcSet: block.image.childImageSharp.thumbnail.srcSet,
                   sizes: "100% 100%"
                 }}
               />
