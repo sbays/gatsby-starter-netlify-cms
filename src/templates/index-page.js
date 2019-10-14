@@ -13,17 +13,22 @@ const LandingPageText = Styled.div`
   font-size: 1.25rem;
 `;
 const LandingPage = Styled.div`
+  .column--text {
+    display: flex;
+    align-items: center;
+  }
+  .landing-page__grid, .column--text .content {
+    max-width: 600px;
+  }
   @media screen and (max-width: 768px) {
     section{
       padding-top: 0;
     } 
     .column--grid {
-      order: 2;
+      order: 2; 
     }
     .column--text {
       order: 1;
-      display: flex;
-      align-items: center;
     }
   }
 `;

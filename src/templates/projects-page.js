@@ -11,12 +11,15 @@ const ProjectsWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  max-width: 600px;
   height: 80vh;
-  gap: 5px;
+  padding-left: 2.5px;
+  padding-right: 2.5px;
   margin: 0 auto;
   padding-bottom: 30px;
   .project__item {
     margin: 3px 0;
+    width: 100%;
   }
   .project__item .blank-block {
     background: #1cb2bf;
@@ -33,44 +36,46 @@ const ProjectsWrapper = styled.div`
 const ProjectItem = styled.div`
   .images {
     display: grid;
-    grid-template-columns: 1fr 3fr;
+    grid-template-columns: 25% 3fr;
     grid-gap: 5px;
-    height: 160px;
+    /* height: 160px; */
     overflow: hidden;
   }
 `;
 
 export const ProjectsPageTemplate = ({ title, projects }) =>
   console.log(projects) || (
-    <ProjectsWrapper className="content">
-      {projects.length > 1 &&
-        projects.map((project, i) => {
-          const images = project.images
-            .filter(image => !!image.image)
-            .map((image, i) => {
-              let photo = { ...image.image.childImageSharp };
-              photo = {
-                ...photo,
-                title: image.title
-              };
-              return photo;
-            });
-          console.log(images);
-          return (
-            <ProjectItem className="project__item" key={i}>
-              <div className="images">
-                <div className="blank-block"></div>
-                <Gallery
-                  title=""
-                  slug=""
-                  images={images}
-                  itemsPerRow={[3]}
-                ></Gallery>
-              </div>
-            </ProjectItem>
-          );
-        })}
-    </ProjectsWrapper>
+    <div className="container">
+      <ProjectsWrapper className="content">
+        {projects.length > 1 &&
+          projects.map((project, i) => {
+            const images = project.images
+              .filter(image => !!image.image)
+              .map((image, i) => {
+                let photo = { ...image.image.childImageSharp };
+                photo = {
+                  ...photo,
+                  title: image.title
+                };
+                return photo;
+              });
+            console.log(images);
+            return (
+              <ProjectItem className="project__item" key={i}>
+                <div className="images">
+                  <div className="blank-block"></div>
+                  <Gallery
+                    title=""
+                    slug=""
+                    images={images}
+                    itemsPerRow={[3]}
+                  ></Gallery>
+                </div>
+              </ProjectItem>
+            );
+          })}
+      </ProjectsWrapper>
+    </div>
   );
 
 const ProjectsPage = ({ data }) => {

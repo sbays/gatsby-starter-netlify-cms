@@ -102,17 +102,28 @@ class GridImages extends Component {
       }
       return (
         <GridItem key={index} className={`grid-item grid-item-${index + 1}`}>
-          <Link className="grid-item__link" to={`/${block.link}`}>
-            {block.image && block.image.childImageSharp ? (
-              <Img
-                fluid={block.image.childImageSharp.fluid}
-                title={block.title}
-              />
-            ) : (
-              "noimage"
-            )}
-            <h5 className="grid-item__title">{block.title}</h5>
-          </Link>
+          {block.link ? (
+            <Link className="grid-item__link" to={`/${block.link}`}>
+              {block.image && block.image.childImageSharp ? (
+                <Img
+                  fluid={block.image.childImageSharp.fluid}
+                  title={block.title}
+                />
+              ) : (
+                "noimage"
+              )}
+              {block.title && (
+                <h5 className="grid-item__title">{block.title}</h5>
+              )}
+            </Link>
+          ) : block.image && block.image.childImageSharp ? (
+            <Img
+              fluid={block.image.childImageSharp.fluid}
+              title={block.title}
+            />
+          ) : (
+            "noimage"
+          )}
         </GridItem>
       );
     });

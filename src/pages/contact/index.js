@@ -13,6 +13,15 @@ function encode(data) {
 const ContactWrapper = Styled.div`
   display: flex;
   flex-direction: row;
+  @media screen and (max-width: 1023px) {
+    flex-direction: column;
+    .contact-page__form, .contact-page__details {
+      width: 100%;
+    }
+    .contact-page__details {
+      padding-top: ${defaultSpacing}
+    }
+  }
   >div {
     padding: 0 10px;
     width: 50%;
@@ -25,8 +34,11 @@ const ContactWrapper = Styled.div`
   .page-header h1, .contact-page__details {
     color: ${formatGreen};
   }
+  
   div.contact-page__details {
-    padding-left: 2*${defaultSpacing};
+    @media screen and (min-width: 1024px) {
+    padding-left: calc(${defaultSpacing} * 3);
+    }
     a {
       margin-bottom: ${defaultSpacing};
     }
@@ -68,7 +80,7 @@ export default class Index extends React.Component {
           <div className="container">
             <div className="content">
               <ContactWrapper>
-                <div>
+                <div className="contact-page__form">
                   <form
                     name="contact"
                     method="post"

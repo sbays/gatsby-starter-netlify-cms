@@ -8,7 +8,7 @@ import styled from "styled-components";
 
 const GalleryContent = styled.div`
   /* padding: 1.5rem; */
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   grid-template-columns: repeat(3, 1fr);
   display: grid;
   gap: 5px;
@@ -42,35 +42,25 @@ const Gallery = ({ title, images, itemsPerRow: itemsPerRowByBreakpoints }) => {
 
   return (
     <GalleryContent className="gallery-content">
-      {/* <h2 key={title}>{title}</h2> */}
-      {images.map((image, i) => {
+      {images.map((image, index) => {
         if (!image) return false;
+        console.log({ itemsPerRowByBreakpoints });
+        if (index >= itemsPerRowByBreakpoints[0]) return false;
         return (
-          <a key={image.fluid.src} onClick={() => openModal(i)}>
+          <a key={image.fluid.src} onClick={() => openModal(index)}>
             <Img
               fluid={image.fluid}
               title={image.title}
-              style={{ width: 200, height: 160, objectFit: "cover" }}
+              aspectRatio={1}
+              sizes={{
+                src: image.thumbnail.src,
+                aspectRatio: 1
+              }}
+              style={{
+                objectFit: "cover",
+                maxWidth: "100%"
+              }}
             ></Img>
-            {/* <Box
-              as={Img}
-              key={image.id}
-              fluid={image.fluid}
-              title={image.title}
-              width={rowAspectRatioSumsByBreakpoints.map(
-                (rowAspectRatioSums, j) => {
-                  const rowIndex = Math.floor(i / itemsPerRowByBreakpoints[j]);
-                  const rowAspectRatioSum = rowAspectRatioSums[rowIndex];
-                  return `${(image.fluid.aspectRatio / rowAspectRatioSum) *
-                    100}%`;
-                }
-              )}
-              css={`
-                display: inline-block;
-                vertical-align: middle;
-                width: auto;
-              `}
-            /> */}
           </a>
         );
       })}

@@ -47,75 +47,12 @@ collections:
           - {
               label: Grid Images,
               name: gridImages,
-              widget: object,
+              widget: list,
               fields:
                 [
-                  {
-                    label: Item 1,
-                    name: item1,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
-                  {
-                    label: Item 2,
-                    name: item2,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
-                  {
-                    label: Item 3,
-                    name: item3,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
-                  {
-                    label: Item 4,
-                    name: item4,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
-                  {
-                    label: Item 5,
-                    name: item5,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
-                  {
-                    label: Item 6,
-                    name: item6,
-                    widget: object,
-                    fields:
-                      [
-                        { label: Title, name: title, widget: text },
-                        { label: Link, name: link, widget: text },
-                        { label: Image, name: image, widget: image },
-                      ],
-                  },
+                  { label: Title, name: title, widget: text, required: false },
+                  { label: Link, name: link, widget: text, required: false },
+                  { label: Image, name: image, widget: image },
                 ],
             }
           # - {label: Description, name: description, widget: string}
