@@ -33,7 +33,7 @@ const LandingPage = Styled.div`
   }
 `;
 
-export const IndexPageTemplate = ({ landingPageText, gridImages }) => {
+export const IndexPageTemplate = ({ landingPageText, gridItems }) => {
   return (
     <LandingPage>
       <section className="section section--gradient">
@@ -41,9 +41,7 @@ export const IndexPageTemplate = ({ landingPageText, gridImages }) => {
           <div className="columns">
             <div className="column column-is-6 column--grid">
               <div className="landing-page__grid">
-                {gridImages && (
-                  <GridImages gridImages={gridImages}></GridImages>
-                )}
+                {gridItems && <GridImages gridItemss={gridItems}></GridImages>}
               </div>
             </div>
             <div className="column is-6 column--text">
@@ -83,7 +81,7 @@ const IndexPage = ({ data }) => {
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
         landingPageText={frontmatter.landingPageText}
-        gridImages={frontmatter.gridImages}
+        gridItems={frontmatter.gridItems}
         description={frontmatter.description}
         intro={frontmatter.intro}
       />
@@ -106,7 +104,7 @@ export const pageQuery = graphql`
     markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
       frontmatter {
         landingPageText
-        gridImages {
+        gridItems {
           title
           link
           image {
