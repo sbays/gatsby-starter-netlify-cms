@@ -50,7 +50,7 @@ collections:
               widget: "list",
               fields:
                 [
-                  { label: Title, name: title, widget: string},
+                  { label: Title, name: title, widget: string, required: false },
                   { label: Link, name: link, widget: string, required: false },
                   { label: Image, name: image, widget: image },
                 ],
