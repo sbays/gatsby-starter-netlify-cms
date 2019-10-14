@@ -9,6 +9,7 @@ featuredpost: true
 featuredimage: /img/tumblr_inline_np9wii2zkh1rwmaks_540.jpg
 tags:
   - format
+  - project
 ---
 ![Exterior](/img/tumblr_inline_np9w5k6zoc1rwmaks_540.jpg "Exterior")
 
