@@ -72,7 +72,7 @@ class GridItems extends Component {
       blocks[blankSpace] = { blank: true };
     });
 
-    Object.keys(gridItems).map((key, index) => {
+    Object.keys(gridItems).forEach((key, index) => {
       const gridItem = gridItems[key];
 
       const emptyBlockIndex = blocks.findIndex(block => {
@@ -105,7 +105,6 @@ class GridItems extends Component {
           ></div>
         );
       }
-      console.log({ block });
       return (
         <GridItem key={index} className={`grid-item grid-item-${index + 1}`}>
           {block.link ? (

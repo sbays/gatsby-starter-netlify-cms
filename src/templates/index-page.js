@@ -1,13 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import Styled from "styled-components";
 import ReactMarkdown from "react-markdown";
 
 import Layout from "../components/Layout";
 import GridItems from "../components/GridItems";
 
-const primaryColor = "rgba(28, 178, 191)";
 const LandingPageText = Styled.div`
   color: #1cb2bf;
   font-size: 1.25rem;

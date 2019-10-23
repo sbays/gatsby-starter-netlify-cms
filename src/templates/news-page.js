@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, StaticQuery } from "gatsby";
 import FullPageGrid from "../components/FullPageGrid";
 
-const ProjectsPage = ({ data }) => {
+const NewsPage = ({ data }) => {
   const { edges: posts } = data.allMarkdownRemark;
 
   return (
@@ -10,15 +10,13 @@ const ProjectsPage = ({ data }) => {
   );
 };
 
-export { ProjectsPage };
-
 export default () => (
   <StaticQuery
     query={graphql`
-      query ProjectsQuery {
+      query NewsStoriesQuery {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
-          filter: { frontmatter: { tags: { in: ["projects"] } } }
+          filter: { frontmatter: { tags: { in: ["format"] } } }
         ) {
           edges {
             node {
@@ -46,6 +44,6 @@ export default () => (
         }
       }
     `}
-    render={(data, count) => <ProjectsPage data={data} count={count} />}
+    render={(data, count) => <NewsPage data={data} count={count} />}
   />
 );
