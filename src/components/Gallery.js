@@ -7,8 +7,6 @@ import Carousel, { Modal, ModalGateway } from "react-images";
 import styled from "styled-components";
 
 const GalleryContent = styled.div`
-  /* padding: 1.5rem; */
-  /* margin-bottom: 5rem; */
   grid-template-columns: repeat(3, 1fr);
   display: grid;
   gap: 5px;

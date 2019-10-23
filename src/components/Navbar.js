@@ -1,11 +1,11 @@
 import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
-import github from "../img/github-icon.svg";
 import logo from "../img/logo.svg";
 
 const NavbarWrapper = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
 
   @media screen and (min-width: 1024px) {
@@ -28,15 +28,17 @@ const NavbarWrapper = styled.div`
 `;
 
 const NavbarMenu = styled.div`
+  flex: 1;
+  justify-content: space-between;
   a {
     &:first-child {
       @media screen and (min-width: 1024px) {
-        padding-left: 6rem;
+        padding-left: 4rem;
       }
     }
     padding: 1rem 0;
     @media screen and (min-width: 1024px) {
-      padding: 1rem 3rem 0;
+      padding: 1rem 1rem 0;
     }
   }
 `;
@@ -93,16 +95,18 @@ const Navbar = class extends React.Component {
               <span />
             </div>
           </div>
-          <div
+          <NavbarMenu
             id="navMenu"
-            className={`navbar-menu ${this.state.navBarActiveClass}`}
+            className={`has-text-centered navbar-menu ${this.state.navBarActiveClass}`}
           >
-            <NavbarMenu className="navbar-start has-text-centered">
               <Link className="navbar-item" to="/">
                 Home
               </Link>
               <Link className="navbar-item" to="/projects">
                 Projects
+              </Link>
+              <Link className="navbar-item" to="/news">
+                News
               </Link>
               <Link className="navbar-item" to="/blog">
                 Blog
@@ -110,8 +114,8 @@ const Navbar = class extends React.Component {
               <Link className="navbar-item" to="/contact">
                 Contact
               </Link>
-            </NavbarMenu>
-          </div>
+            
+          </NavbarMenu>
         </NavbarWrapper>
       </nav>
     );

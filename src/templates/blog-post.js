@@ -1,10 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { kebabCase } from 'lodash'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import { graphql, Link } from 'gatsby'
 import Layout from '../components/Layout'
 import Content, { HTMLContent } from '../components/Content'
+import {formatGreenTranslucent} from '../variables'
+
+const BlogStyles = styled.div`
+  img {
+    box-shadow: #818285 1px 0px 6px!important;
+  }
+  span.gatsby-resp-image-wrapper {
+    outline: 2px solid ${formatGreenTranslucent};
+  }
+`
+
 
 export const BlogPostTemplate = ({
   content,
@@ -19,7 +31,7 @@ export const BlogPostTemplate = ({
   return (
     <section className="section">
       {helmet || ''}
-      <div className="container content">
+      <BlogStyles className="container content">
         <div className="columns">
           <div className="column is-10 is-offset-1">
             <h1 className="title is-size-2 has-text-weight-bold is-bold-light">
@@ -41,7 +53,7 @@ export const BlogPostTemplate = ({
             ) : null}
           </div>
         </div>
-      </div>
+      </BlogStyles>
     </section>
   )
 }
